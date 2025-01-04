@@ -24,14 +24,13 @@ const cors = require('cors');
 
 
 
-mongoose.connect(process.env.DATABASE_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log('Conectado a MongoDB correctamente');
-}).catch((err) => {
-  console.error('Error al conectar a MongoDB:', err);
-});
+mongoose.connect(process.env.DATABASE_URL)
+  .then(() => {
+    console.log('Conectado a MongoDB correctamente');
+  })
+  .catch((err) => {
+    console.error('Error al conectar a MongoDB:', err);
+  });
 
 
 //Habilitar CORS
