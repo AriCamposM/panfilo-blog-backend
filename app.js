@@ -24,13 +24,14 @@ const cors = require('cors');
 
 
 
-mongoose.connect('mongodb://localhost:27017/panfilo-blog')
-.then(() => {
-    console.log('Conexion exitosa')
-})
-.catch(() =>{
-    console.log('Conexion Erronea revisa Mongoose')
-})
+ongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log('Conectado a MongoDB correctamente');
+}).catch((err) => {
+  console.error('Error al conectar a MongoDB:', err);
+});
 
 
 //Habilitar CORS
